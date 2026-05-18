@@ -23,3 +23,7 @@ db.sqlite3
 # OS
 Thumbs.db
 Desktop.ini
+
+# Static
+staticfiles/
+backend/staticfiles/
