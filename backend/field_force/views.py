@@ -298,3 +298,52 @@ class ReportViewSet(viewsets.ViewSet):
             'top_agents': top_agents,
             'delayed_tasks_count': delayed_tasks_count
         })
+
+from rest_framework.views import APIView
+
+class AdminStatusView(APIView):
+    permission_classes = (permissions.AllowAny,)
+    
+    def get(self, request):
+        admin_exists = User.objects.filter(role='ADMIN', is_active=True).exists()
+        return Response({'admin_exists': admin_exists}, status=status.HTTP_200_OK)
+
+class AdminRegisterView(APIView):
+    permission_classes = (permissions.AllowAny,)
+    
+    def post(self, request):
+        if User.objects.filter(role='ADMIN', is_active=True).exists():
+            return Response(
+                {'error': 'Administrative registration is closed as an admin already exists.'}, 
+                status=status.HTTP_403_FORBIDDEN
+            )
+            
+        username = request.data.get('username')
+        email = request.data.get('email', '')
+        password = request.data.get('password')
+        role = request.data.get('role', 'ADMIN')
+        
+        if not username or not password:
+            return Response({'error': 'Username and password are required.'}, status=status.HTTP_400_BAD_REQUEST)
+            
+        if User.objects.filter(username=username).exists():
+            return Response({'error': 'Username already exists.'}, status=status.HTTP_400_BAD_REQUEST)
+            
+        user = User.objects.create_user(
+            username=username,
+            email=email,
+            password=password,
+            role=role
+        )
+        
+        if role == 'ADMIN':
+            user.is_staff = True
+            user.is_superuser = True
+            user.save()
+            
+        return Response({
+            'status': 'success',
+            'username': user.username,
+            'role': user.role
+        }, status=status.HTTP_201_CREATED)
+

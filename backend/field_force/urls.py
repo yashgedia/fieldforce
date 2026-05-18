@@ -3,7 +3,8 @@ from rest_framework.routers import DefaultRouter
 from .views import (
     UserViewSet, RegionViewSet, TaskViewSet, VisitViewSet, 
     ActivityLogViewSet, ReportViewSet, RegisterView,
-    AttendanceViewSet, ExpenseViewSet, MessageViewSet
+    AttendanceViewSet, ExpenseViewSet, MessageViewSet,
+    AdminStatusView, AdminRegisterView
 )
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
@@ -23,4 +24,6 @@ urlpatterns = [
     path('auth/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('auth/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('auth/register/', RegisterView.as_view(), name='auth_register'),
+    path('auth/admin-status/', AdminStatusView.as_view(), name='admin_status'),
+    path('auth/register-admin/', AdminRegisterView.as_view(), name='auth_register_admin'),
 ]

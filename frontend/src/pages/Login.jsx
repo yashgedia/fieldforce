@@ -99,7 +99,6 @@ const Login = () => {
         
         <div className="mt-6 text-center text-sm text-slate-500">
           Don't have an account? <Link to="/register" className="text-blue-600 hover:underline font-medium">Sign up</Link>
-          
         </div>
       </div>
     </div>
