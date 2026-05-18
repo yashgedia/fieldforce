@@ -5,7 +5,6 @@ import Layout from './components/Layout';
 import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import AdminSignup from './pages/AdminSignup';
 import Dashboard from './pages/Dashboard';
 import Tasks from './pages/Tasks';
 import TaskDetail from './pages/TaskDetail';
@@ -26,7 +25,6 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/signupadmin" element={<AdminSignup />} />
           <Route path="/info/:slug" element={<InfoPage />} />
           
           {/* Protected Routes (wrapped by Layout which requires Auth) */}
