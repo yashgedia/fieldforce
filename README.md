@@ -15,17 +15,13 @@ The system features **Role-Based Access Control (RBAC)**, real-time message rout
 *   **Live Application URL:** [https://fieldforce-sigma.vercel.app/](https://fieldforce-sigma.vercel.app/)
 *   **Production Backend API Endpoint:** `https://fieldforce-euno.onrender.com/api/`
 
-### 🧪 User Testing & Authentication Keys
+### 🧪 User Testing & Authentication
 
-You can register an account directly on the website for user testing, or log in with our pre-configured evaluation accounts to inspect different permissions and views:
-
-| Role | Username | Password | Access Designation |
-| :--- | :--- | :--- | :--- |
-| **System Administrator** | `admin` | `admin123` | Full access, reporting, system keys, and RBAC control |
-| **Regional Manager** | `rm_north` | `password123` | Control over tasks, agents, and logs in the North Zone |
-| **Team Lead** | `tl_north` | `password123` | Manages assignments and team operations within region |
-| **Field Agent** | `agent1` | `password123` | Captures location check-ins, inputs visit notes, updates tasks |
-| **Auditor** | `auditor` | `password123` | Read-only view of operational logs, reports, and aggregates |
+To explore and evaluate the platform:
+1. **Administrative Access:** Log in using the pre-configured primary system administrator account:
+   * **Username:** `admin`
+   * **Password:** `admin123`
+2. **Custom Testing:** You can register a new account directly via the **Sign Up** registration page on the live website to test the standard user onboarding flow!
 
 ---
 
